@@ -1,0 +1,21 @@
+body {
+  top: 0;
+  bottom: 0;
+}
+.navHov:hover {
+  background-color: #00a4ff;
+  color: white;
+}
+.bgUtama {
+  height: 500px;
+  background-color: #898e8d;
+}
+.fontFamily {
+  font-family: "Black And White Picture", sans-serif;
+}
+.footer {
+  color: #fff;
+  width: 100%;
+  bottom: 0;
+  background-color: #343a40;
+}
