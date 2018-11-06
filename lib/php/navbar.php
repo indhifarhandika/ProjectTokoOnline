@@ -8,7 +8,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <a class="nav-item nav-link text-white" href="#">Home</a>
+            <a class="nav-item nav-link text-white" href="index.php">Home</a>
             <div class="nav-item dropdown">
               <a href="" class="nav-link dropdown-toggle text-white" id="proDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produk</a>
               <div class="dropdown-menu" sty>
@@ -24,7 +24,7 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nDrop">
                 <small class="dropdown-item"><em>Username: '.$username.'</em></small>
                 <a class="dropdown-item navHov" href="" data-toggle="modal" data-target="#exampleModal">Login</a>
-                <a href="" class="dropdown-item navHov">Daftar</a>
+                <a href="daftar.php" class="dropdown-item navHov">Daftar</a>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
               </div>
-              <small>Belum punya akun, silahkan <a href="#">Daftar</a></small>
+              <small>Belum punya akun, silahkan <a href="daftar.php">Daftar</a></small>
             </form>
           </div>
           <div class="modal-footer">
