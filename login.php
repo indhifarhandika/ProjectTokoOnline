@@ -1,6 +1,21 @@
 <?php
+  require "lib/php/function.php";
+
   if (isset($_POST['login'])) {
-    echo '<script>alert("SIP")</script>';
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
+
+    if ( mysqli_num_rows($result) === 1 ) {
+      $row = mysqli_fetch_assoc($result);
+      if ( password_verify($password, $row['password']) ) {
+        header("Location: index.php");
+        exit;
+      }
+    }
+    $error = true;
   }
  ?>
 <!DOCTYPE html>
@@ -36,10 +51,10 @@
         display: table;
         position: absolute;
         min-width: 100%;
-        margin-top: 10%;
       }
       .loginCenter {
         border-radius: 20px;
+        margin-top: 5%;
         margin-left: 25%;
         margin-right: 25%;
       }
@@ -51,6 +66,16 @@
         <div class="full">
         </div>
       </div>
+      <!-- Alert login gagal (Akan ditampilkan jika Login gagal) -->
+      <?php if ( isset($error) ) {
+        echo '<div class="alert alert-light alert-dismissible fade show text-center fixed-top" role="alert" style="opacity: 0.6;">
+          <strong style="color: #0fb125;">Username / Password salah!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>';
+      } ?>
+      <!-- End Alert -->
       <div class="row outer">
         <div class="col-xs">
           <div class="card loginCenter">

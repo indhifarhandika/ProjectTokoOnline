@@ -1,4 +1,13 @@
 <?php
+  require "lib/php/function.php";
+
+  if ( isset($_POST['daftar']) ) {
+    if ( register($_POST) > 0 ) {
+      echo '<script>alert("SIP")</script>';
+    }else {
+      echo mysqli_error($conn);
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
