@@ -1,3 +1,5 @@
+<?php
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,7 +11,7 @@
   </head>
   <body>
     <!-- Import Navbar -->
-    <?php Include("lib/php/navbar.php") ?>
+    <?php include('lib/php/navbar.php') ?>
     <!-- End Import Navbar -->
     <!-- Form Daftar -->
     <div class="container" style="margin-top: 5rem">
@@ -18,24 +20,29 @@
           <form class="" action="" method="post">
             <div class="form-group">
               <label for="inputUsername">Username</label>
-              <input type="text" name="Username" value="" class="form-control" id="inputUsername" placeholder="Username" required>
+              <input type="text" name="username" value="" class="form-control" id="inputUsername" placeholder="Username" required>
             </div>
             <div class="form-group">
               <label for="inputNama">Nama</label>
-              <input type="text" name="Nama" value="" class="form-control" id="inputNama" placeholder="Nama anda" required>
+              <input type="text" name="nama" value="" class="form-control" id="inputNama" placeholder="Nama anda" required>
             </div>
             <div class="form-group">
               <label for="inputEmail">Email</label>
-              <input type="email" name="Email" value="" class="form-control" id="inputEmail" placeholder="Email" required>
+              <input type="email" name="email" value="" class="form-control" id="inputEmail" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="inputAlamat">Alamat</label>
-              <textarea class="form-control" id="inputAlamat" name="Alamat" rows="5" cols="50" required></textarea>
+              <textarea class="form-control" id="inputAlamat" name="alamat" rows="5" cols="50" required></textarea>
             </div>
             <div class="form-group">
               <label for="inputPass">Password</label>
-              <input type="password" name="Password" value="" class="form-control" placeholder="Password" required>
+              <input type="password" name="password" value="" class="form-control" placeholder="Password" required>
             </div>
+            <div class="form-group">
+              <label for="inputPass2">Konfirmasi Password</label>
+              <input type="password" name="password2" value="" class="form-control" placeholder="Konfirmasi Password" required>
+            </div>
+            <button type="submit" name="daftar" class="btn btn-outline-primary">Daftar</button>
           </form>
         </div>
       </div>

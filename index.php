@@ -21,6 +21,9 @@
     <!-- End Isi -->
     <!-- Import Footer -->
     <?php include('lib/php/footer.php') ?>
+    <!-- End Import Footer -->
+    <!-- Import Link2 -->
     <?php include('lib/php/link2.php') ?>
+    <!-- End Import Link2 -->
   </body>
 </html>
