@@ -1,4 +1,4 @@
-<?php 
+<?php
   if (isset($_POST['login'])) {
     echo '<script>alert("SIP")</script>';
   }
@@ -36,7 +36,7 @@
         display: table;
         position: absolute;
         min-width: 100%;
-        margin-top: 12%;
+        margin-top: 10%;
       }
       .loginCenter {
         border-radius: 20px;

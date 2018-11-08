@@ -28,7 +28,6 @@ $username = "Anon";
               </div>
             </div>
           </div>
-        </div>
       </div>
     </nav>
     <!-- End NavBar -->
