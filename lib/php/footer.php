@@ -1,5 +1,5 @@
 <?php
-  echo '<footer class="mt-5 pt-5 pb-3 footer">
+  echo '<footer class="pt-5 pb-3 footer">
       <div class="container-fuild">
         <div class="row" style="margin-right: 0px;">
           <div class="col-sm text-center">

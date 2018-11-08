@@ -1,4 +1,13 @@
 <!-- Project Toko Online -->
+<?php
+    require('lib/php/function.php');
+    session_start();
+  	if(!isset($_SESSION['username'])){
+  		$username = "Anon";
+  	}else{
+  	  $username = $_SESSION['username'];  
+    }
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +19,21 @@
   </head>
   <body>
     <!-- Import Navbar -->
-    <?php include('lib/php/navbar.php') ?>
+    <?php
+      if ( !isset($_SESSION['username']) ) {
+        include('lib/php/navbar.php');
+      }else{
+        global $conn;
+        $username = $_SESSION['username'];
+        $result = mysqli_query($conn,"SELECT username FROM member WHERE status='admin'");
+        $row = mysqli_fetch_assoc($result);
+        if ( $username === $row['username'] ) {
+          include('lib/php/navbarAdmin.php');
+        }else{
+          include('lib/php/navbarMember.php');
+        }
+      }
+     ?>
     <!-- End Import Navbar -->
     <!-- Isi -->
     <div class="jumbotron jumbotron-fluid bgUtama">

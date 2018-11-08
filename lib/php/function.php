@@ -1,6 +1,6 @@
 <?php
 // Koneksi database
-$conn = mysqli_connect('localhost','root','','toko_online');
+$conn = mysqli_connect('localhost','root','','db_toko_online');
 
 function query($query) {
   global $conn;
@@ -24,7 +24,7 @@ function register($data) {
   $password2 = mysqli_real_escape_string($conn, $data['password2']);
 
   // Cek username ke database
-  $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+  $result = mysqli_query($conn, "SELECT username FROM member WHERE username = '$username'");
 
   if (mysqli_fetch_assoc($result)) {
     echo '<script> alert("Username telah terdaftar")';
@@ -42,7 +42,7 @@ function register($data) {
   $password = password_hash($password, PASSWORD_DEFAULT);
 
   // Menambahkan user baru ke database
-  mysqli_query($conn, "INSERT INTO users VALUES('','$username','$nama','$email','$alamat','$password','member')");
+  mysqli_query($conn, "INSERT INTO member VALUES('','$username','$nama','$email','$alamat','$password','member')");
 
   return mysqli_affected_rows($conn);
 }

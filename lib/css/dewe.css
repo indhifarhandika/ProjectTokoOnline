@@ -4,6 +4,9 @@ body {
   margin: 0;
   display: block;
 }
+.usrB {
+  font-weight: bold;
+}
 .navHov:hover {
   background-color: #00a4ff;
   color: white;
