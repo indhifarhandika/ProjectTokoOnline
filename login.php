@@ -2,6 +2,10 @@
   session_start();
   require "lib/php/function.php";
 
+  if (isset($_SESSION['username'])) {
+    header('Location: index.php');
+  }
+
   if (isset($_POST['login'])) {
 
     $username = $_POST['username'];
@@ -25,6 +29,7 @@
   <head>
     <meta charset="utf-8">
     <title>Login | Azarine Bag</title>
+    <meta name="author" content="INDHI FARHANDIKA">
     <!-- Import Link -->
     <?php include('lib/php/link.php') ?>
     <!-- End Import Link -->

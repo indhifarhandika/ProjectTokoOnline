@@ -4,7 +4,8 @@
   if(!isset($_SESSION['username'])){
     $username = "Anon";
   }else{
-    $username = $_SESSION['username'];
+    header('Location: index.php');
+    exit;
   }
   if ( isset($_POST['daftar']) ) {
     if ( register($_POST) > 0 ) {
@@ -20,6 +21,7 @@
   <head>
     <meta charset="utf-8">
     <title>Azarine Bag</title>
+    <meta name="author" content="INDHI FARHANDIKA">
     <!-- Import Link -->
     <?php include("lib/php/link.php") ?>
     <!-- End Import Link -->

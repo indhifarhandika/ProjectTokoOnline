@@ -2,7 +2,7 @@
 	echo '<!-- NavBar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><small style="color: #ffffff;"><em><strong>AzarineBag.id</strong></em></small></a>
+        <a class="navbar-brand" href="#"><small style="color: #ffffff;"><em><strong><img src="lib/img/icon.ico">AzarineBag.id</strong></em></small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

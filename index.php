@@ -5,7 +5,7 @@
   	if(!isset($_SESSION['username'])){
   		$username = "Anon";
   	}else{
-  	  $username = $_SESSION['username'];  
+  	  $username = $_SESSION['username'];
     }
  ?>
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
   <head>
     <meta charset="utf-8">
     <title>Azarine Bag</title>
+    <meta name="author" content="INDHI FARHANDIKA">
     <!-- Import Link -->
     <?php include("lib/php/link.php") ?>
     <!-- End Import Link -->
