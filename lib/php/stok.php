@@ -1,5 +1,5 @@
-<?php $result = mysqli_query($conn, "SELECT DISTINCT barang.id_barang, barang.jenis_barang, stok.harga, stok.total_barang, barang.gambar, stok.tgl_update FROM stok, barang WHERE barang.id_barang = stok.id_barang ORDER BY barang.id_barang"); ?>
-<h1 class="text-center mb-3">Laporan Stok</h1>
+<?php $result = mysqli_query($conn, "SELECT * FROM stok"); ?>
+<h1 class="text-center mb-3 warna-campur" style="font-family: 'Gugi', cursive;">Laporan Stok</h1>
 <table class="table table-hover table-dark" style="overflow: auto;">
     <thead>
       <tr>

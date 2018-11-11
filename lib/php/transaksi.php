@@ -1,5 +1,5 @@
 <?php $result = mysqli_query($conn, 'SELECT transaksi.id_transaksi, member.nama, member.alamat, transaksi.id_barang, transaksi.total_barang, transaksi.tgl, transaksi.status FROM transaksi, member WHERE transaksi.id_user = member.id_user'); ?>
-<h1 class="text-center mb-3">Transaksi</h1>
+<h1 class="text-center mb-3 warna-campur" style="font-family: 'Gugi', cursive;">Transaksi</h1>
 <table class="table table-hover table-dark" style="overflow: auto;">
     <thead>
       <tr>
@@ -28,11 +28,14 @@
     <?php endwhile; ?>
   </tbody>
 </table>
-<form class="" action="" method="post" id="form2">
+<form class="d-flex justify-content-center" action="" method="post" id="form2">
   <div class="input-group mb-3 pl-2" style="width: 20rem;">
-    <input type="text" class="form-control" placeholder="Kode Transaksi" name="status" aria-label="Konfirmasi" aria-describedby="konfirmasi" required>
     <div class="input-group-append">
-      <button onclick="konfirmasi()" class="btn btn-outline-secondary" type="submit" id="konfirmasi" name="konfirmasi" form="form2">Konfirmasi</button>
+      <button style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;" class="btn btn-outline-light" type="submit" id="hapus" name="hapus" form="form2">Hapus</button>
+    </div>
+    <input type="text" class="form-control" placeholder="Kode Transaksi" name="status" aria-label="Konfirmasi" aria-describedby="konfirmasi" autocomplete="off" required>
+    <div class="input-group-append">
+      <button class="btn btn-outline-light" type="submit" id="konfirmasi" name="konfirmasi" form="form2">Konfirmasi</button>
     </div>
   </div>
 </form>

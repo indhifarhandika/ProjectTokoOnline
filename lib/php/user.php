@@ -1,5 +1,5 @@
 <?php $result = mysqli_query($conn, 'SELECT username, nama, email, alamat FROM member'); ?>
-<h1 class="text-center mb-3">User yang terdaftar</h1>
+<h1 class="text-center mb-3 warna-campur" style="font-family: 'Gugi', cursive;">User yang terdaftar</h1>
 <table class="table table-hover table-dark" style="overflow: auto;">
     <thead>
       <tr>

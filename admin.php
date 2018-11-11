@@ -21,8 +21,18 @@
         echo "<script>alert('Kode Transaksi salah')</script>";
       }
     }
+    elseif (isset($_POST['hapus'])) {
+      $id_transaksi = $_POST['status'];
+      $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
+      if (mysqli_num_rows($result) === 1) {
+        echo "<script>alert('Kode Transaksi $id_transaksi berhasil dihapus')</script>";
+        $result = mysqli_query($conn, "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'");
+      }else {
+        echo "<script>alert('Kode Transaksi $id_transaksi tidak ada dalam daftar')</script>";
+      }
+    }
   }
-
+  
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -31,13 +41,18 @@
     <title>Admin Azarine Bag</title>
     <meta name="author" content="INDHI FARHANDIKA">
     <?php include('lib/php/link.php') ?>
+    <script type="text/javascript">
+      function info() {
+        alert("OKE");
+      }
+    </script>
   </head>
-  <body>
+  <body style="background-color: #112233;">
     <?php include('lib/php/navbarAdmin.php') ?>
 
     <div class="jumbotron jumbotron-fuild" style="border-radius: 0;top: 0;margin-bottom: 0;background-image: url('lib/img/background.jpg'); background-size: cover; height: 20rem;">
       <div class="container text-center">
-        <h1 style="color: #ffffff; font-family: 'Patrick Hand', cursive; font-size: 50px; padding-top: 5rem;">Admin Panel</h1>
+        <h1 class="text-3d" style="font-family: 'Gugi', cursive; font-size: 4rem; padding-top: 5rem;">Admin Panel</h1>
       </div>
     </div>
     <div class="container-fuild">
