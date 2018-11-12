@@ -1,4 +1,4 @@
-<?php $result = mysqli_query($conn, "SELECT * FROM stok"); ?>
+<?php $stok = query("SELECT * FROM stok"); ?>
 <h1 class="text-center mb-3 warna-campur" style="font-family: 'Gugi', cursive;">Laporan Stok</h1>
 <table class="table table-hover table-dark" style="overflow: auto;">
     <thead>
@@ -13,7 +13,7 @@
       </tr>
   </thead>
   <tbody>
-    <?php $count = 1; while ($rows = mysqli_fetch_assoc($result)) : ?>
+    <?php $count = 1; foreach ($stok as $rows) : ?>
       <tr>
         <th><?php echo $count; $count++ ?></th>
         <td><?php echo $rows['id_barang']; ?></td>
@@ -23,6 +23,6 @@
         <td><?php echo $rows['gambar']; ?></td>
         <td><?php echo $rows['tgl_update']; ?></td>
       </tr>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
   </tbody>
 </table>

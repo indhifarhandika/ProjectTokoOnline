@@ -11,26 +11,16 @@
     if ( $username === $row['username'] ) {
       header("Location: index.php");
       exit;
-    }
-    if (isset($_POST['iya2'])) {
-      $id_transaksi = $_POST['status'];
-      $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
-      if (mysqli_num_rows($result) === 1) {
-        echo "<script>alert('Mantap')</script>";
-        $result = mysqli_query($conn, "UPDATE transaksi SET status='Terkirim' WHERE id_transaksi='$id_transaksi'");
+    }elseif (isset($_POST['insert'])) {
+      if (tambah($_POST) > 0) {
+        echo "<script>alert('Data berhasil di tambah')</script>";
       }else {
-        echo "<script>alert('Kode Transaksi salah')</script>";
+        echo "<script>alert('Data gagal di tambah')</script>";
       }
-    }
-    elseif (isset($_POST['iya'])) {
-      $id_transaksi = $_POST['status'];
-      $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
-      if (mysqli_num_rows($result) === 1) {
-        echo "<script>alert('Kode Transaksi $id_transaksi berhasil dihapus')</script>";
-        $result = mysqli_query($conn, "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'");
-      }else {
-        echo "<script>alert('Kode Transaksi $id_transaksi tidak ada dalam daftar')</script>";
-      }
+    }elseif (isset($_POST['iya2'])) {
+      update($_POST);
+    }elseif (isset($_POST['iya'])) {
+      hapus($_POST);
     }
   }
  ?>
@@ -81,7 +71,7 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="jenisBarang">Jenis Barang</label>
                       </div>
-                      <select class="custom-select" id="jenisBarang">
+                      <select class="custom-select" id="jenisBarang" name="jenisBarang">
                         <option selected>Pilih</option>
                         <option value="Import">Barang Import</option>
                         <option value="Eksport">Barang Eksport</option>
@@ -104,7 +94,7 @@
                         <span class="input-group-text" id="gambar">Gambar</span>
                       </div>
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGambar" aria-describedby="gambar">
+                        <input type="file" class="custom-file-input" id="inputGambar" name="gambar" aria-describedby="gambar">
                         <label class="custom-file-label" for="inputGambar">Klik</label>
                       </div>
                     </div>

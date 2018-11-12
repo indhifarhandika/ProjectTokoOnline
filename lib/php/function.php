@@ -12,7 +12,46 @@ function query($query) {
   }
   return $rows;
 }
+function hapus($data) {
+  global $conn;
 
+  $id_transaksi = $data['status'];
+  $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
+  if (mysqli_num_rows($result) === 1) {
+    echo "<script>alert('Kode Transaksi $id_transaksi berhasil dihapus')</script>";
+    $result = mysqli_query($conn, "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'");
+  }else {
+    echo "<script>alert('Kode Transaksi $id_transaksi tidak ada dalam daftar')</script>";
+  }
+}
+function update($data) {
+  global $conn;
+
+  $id_transaksi = $_POST['status'];
+  $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
+  if (mysqli_num_rows($result) === 1) {
+    echo "<script>alert('Kode Transaksi $id_transaksi berhasil dihapus')</script>";
+    $result = mysqli_query($conn, "UPDATE transaksi SET status='Terkirim' WHERE id_transaksi='$id_transaksi'");
+  }else {
+    echo "<script>alert('Kode Transaksi salah')</script>";
+  }
+}
+function tambah($data) {
+  global $conn;
+
+  $id_barang = htmlspecialchars($data['kodeBarang']);
+  $jenis_barang = htmlspecialchars($data['jenisBarang']);
+  if ($jenis_barang === 'Import') {
+    $jenis_barang = "Import";
+  }else {
+    $jenis_barang = "Eksport";
+  }
+  $harga = htmlspecialchars($data['harga']);
+  $total_barang = htmlspecialchars($data['totalBarang']);
+  $gambar = htmlspecialchars($data['gambar']);
+  $result = mysqli_query($conn,"INSERT INTO barang VALUES ('$id_barang','$jenis_barang', '$harga', '$total_barang','$gambar',CURRENT_TIMESTAMP)");
+  return mysqli_affected_rows($conn);
+}
 function register($data) {
   global $conn;
 
