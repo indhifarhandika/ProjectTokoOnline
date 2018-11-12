@@ -48,9 +48,49 @@ function tambah($data) {
   }
   $harga = htmlspecialchars($data['harga']);
   $total_barang = htmlspecialchars($data['totalBarang']);
-  $gambar = htmlspecialchars($data['gambar']);
+  $gambar = upload();
+  if (!$gambar) {
+    return false;
+  }
   $result = mysqli_query($conn,"INSERT INTO barang VALUES ('$id_barang','$jenis_barang', '$harga', '$total_barang','$gambar',CURRENT_TIMESTAMP)");
   return mysqli_affected_rows($conn);
+}
+function upload() {
+  $namaFile = $_FILES['gambar']['name'];
+  $ukuranFile = $_FILES['gambar']['size'];
+  $error = $_FILES['gambar']['error'];
+  $tmpName = $_FILES['gambar']['tmp_name'];
+  //Cek apakah tidak ada gambar yang diupload
+  if ($error === 4) {
+    echo "<secipt>
+            alert('Pilih gambar terlebih dahulu');
+          </script>";
+    return false;
+  }
+  // Cek apakah yang diupload adalah gambar
+  $typeGambarValid = ['jpeg','png','jpg'];
+  $typeGambar = explode('.', $namaFile);
+  $typeGambar = strtolower(end($typeGambar));
+  if ( !in_array($typeGambar, $typeGambarValid) ) {
+    echo "<secipt>
+            alert('yang anda upload bukan Gambar');
+          </script>";
+    return false;
+  }
+  // Cek jika ukuran gambar terlalu besar
+  if ($ukuranFile > 3000000) {
+    echo "<secipt>
+            alert('Ukuran gambar yang anda upload lebih dari 3Mb');
+          </script>";
+    return false;
+  }
+  // Lolos pengecekan upload gambar
+  $namaFileNew = uniqid();
+  $namaFileNew .= '.';
+  $namaFileNew .= $typeGambar;
+  move_uploaded_file($tmpName, 'lib/img/imgTas/' . $namaFileNew);
+
+  return $namaFileNew;
 }
 function register($data) {
   global $conn;

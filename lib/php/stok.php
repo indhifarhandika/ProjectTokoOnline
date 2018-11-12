@@ -1,6 +1,6 @@
 <?php $stok = query("SELECT * FROM stok"); ?>
 <h1 class="text-center mb-3 warna-campur" style="font-family: 'Gugi', cursive;">Laporan Stok</h1>
-<table class="table table-hover table-dark" style="overflow: auto;">
+<table class="table table-hover table-dark table-responsive-sm" style="overflow: auto;">
     <thead>
       <tr>
         <th scope="col">No</th>
@@ -20,7 +20,7 @@
         <td><?php echo $rows['jenis_barang']; ?></td>
         <td><?php echo $rows['harga']; ?></td>
         <td><?php echo $rows['total_barang']; ?></td>
-        <td><?php echo $rows['gambar']; ?></td>
+        <td> <img src="lib/img/imgTas/<?php echo $rows['gambar']; ?>" style="height: 100px;"></td>
         <td><?php echo $rows['tgl_update']; ?></td>
       </tr>
     <?php endforeach; ?>

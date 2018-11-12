@@ -60,7 +60,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form class="" action="" method="post" id="form1">
+                  <form class="" action="" method="post" enctype="multipart/form-data" id="form1">
                     <div class="form-group input-group">
                       <div class="input-group-prepend">
                        <span class="input-group-text" for="kodeBarang">Kode Barang</span>
