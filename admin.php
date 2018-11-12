@@ -12,16 +12,17 @@
       header("Location: index.php");
       exit;
     }
-    if (isset($_POST['konfirmasi'])) {
+    if (isset($_POST['iya2'])) {
       $id_transaksi = $_POST['status'];
       $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
       if (mysqli_num_rows($result) === 1) {
+        echo "<script>alert('Mantap')</script>";
         $result = mysqli_query($conn, "UPDATE transaksi SET status='Terkirim' WHERE id_transaksi='$id_transaksi'");
       }else {
         echo "<script>alert('Kode Transaksi salah')</script>";
       }
     }
-    elseif (isset($_POST['hapus'])) {
+    elseif (isset($_POST['iya'])) {
       $id_transaksi = $_POST['status'];
       $result = mysqli_query($conn, "SELECT id_transaksi FROM transaksi WHERE id_transaksi='$id_transaksi'");
       if (mysqli_num_rows($result) === 1) {
@@ -32,7 +33,6 @@
       }
     }
   }
-  
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -56,9 +56,9 @@
       </div>
     </div>
     <div class="container-fuild">
-      <div class="alert bg-dark row text-center">
+      <div class="alert bg-dark row text-center" style="margin-right: 0;">
         <div class="col-sm pt-1">
-          <a href="login.php" class="nav-item nav-link text-white font-weight-bold" data-toggle="modal" data-target="#FormInsert">Tambah Data</a>
+          <a href="" class="nav-item nav-link text-white font-weight-bold" data-toggle="modal" data-target="#FormInsert">Tambah Data</a>
           <!-- Form Insert Data -->
           <div class="modal fade" id="FormInsert" tabindex="-1" role="dialog" aria-labelledby="FormInsert" aria-hidden="true">
             <div class="modal-dialog" role="document">
