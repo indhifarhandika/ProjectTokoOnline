@@ -23,10 +23,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nDrop">
                 <small class="dropdown-item font-weight-bold"><em>Username: '.$username.'</em></small>
-                <a class="dropdown-item navHov" href="login.php">Tambah Data</a>
-                <a href="" class="dropdown-item navHov">Update Data</a>
-				<a href="" class="dropdown-item navHov">Delete Data</a>
-				<a href="" class="dropdown-item navHov">Laporan Stok</a>
+                <a href="admin.php?profile=true" class="dropdown-item navHov">Profile</a>
 				<a href="lib/php/logout.php" class="dropdown-item navHov">Logout</a>
               </div>
             </div>

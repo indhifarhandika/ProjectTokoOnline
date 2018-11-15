@@ -31,11 +31,6 @@
     <title>Admin Azarine Bag</title>
     <meta name="author" content="INDHI FARHANDIKA">
     <?php include('lib/php/link.php') ?>
-    <script type="text/javascript">
-      function info() {
-        alert("OKE");
-      }
-    </script>
   </head>
   <body style="background-color: #112233;">
     <?php include('lib/php/navbarAdmin.php') ?>
@@ -124,6 +119,8 @@
         include 'lib/php/user.php';
       }elseif (isset($_GET['transaksi'])) {
         include 'lib/php/transaksi.php';
+      }elseif (isset($_GET['profile'])) {
+        include 'lib/php/profileAdmin.php';
       }else {
         include 'lib/php/stok.php';
       } ?>
